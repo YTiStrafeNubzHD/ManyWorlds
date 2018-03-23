@@ -1,3 +1,5 @@
+[![HitCount](http://hits.dwyl.io/YTiStrafeNubzHD/ManyWorlds.svg)](http://hits.dwyl.io/YTiStrafeNubzHD/ManyWorlds)
+
 <img src="https://raw.githubusercontent.com/alejandroliu/pocketmine-plugins/master/Media/ManyWorlds-icon.png" style="width:64px;height:64px" width="64" height="64"/>
 
 # ManyWorlds
