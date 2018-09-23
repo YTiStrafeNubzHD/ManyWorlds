@@ -1,16 +1,17 @@
 [![HitCount](http://hits.dwyl.io/YTiStrafeNubzHD/ManyWorlds.svg)](http://hits.dwyl.io/YTiStrafeNubzHD/ManyWorlds)
 
-<img src="https://raw.githubusercontent.com/alejandroliu/pocketmine-plugins/master/Media/ManyWorlds-icon.png" style="width:64px;height:64px" width="64" height="64"/>
+<img src="https://github.com/poggit-orphanage/ManyWorlds/blob/master/media/ManyWorlds-icon.png" style="width:64px;height:64px" width="64" height="64"/>
+
 
 # ManyWorlds
 
 * Summary: Manage Multiple Worlds
 * Dependency Plugins: n/a
-* PocketMine-MP version: 1.6+php7 (API:2.0.0)
+* PocketMine-MP: API 3.0.0 (and higher)
 * OptionalPlugins: n/a
 * Categories: Admin Tools, Teleportation
 * Plugin Access: Commands, Manages Worlds
-* WebSite: [github](https://github.com/alejandroliu/pocketmine-plugins/tree/master/ManyWorlds)
+* WebSite: [GitHub](https://github.com/poggit-orphanage/ManyWorlds/tree/master)
 
 ## Overview
 
@@ -22,7 +23,7 @@ question/bug-report/request please use the
 that.  You are more likely to get a response and help that way.
 
 Please go to
-[github](https://github.com/alejandroliu/pocketmine-plugins/tree/master/ManyWorlds)
+[GitHub](https://github.com/poggit-orphanage/ManyWorlds/tree/master)
 for the most up-to-date documentation.
 
 Full feature set of commands to manage multiple worlds.
@@ -155,7 +156,7 @@ languages currently available are:
 
 You can provide your own message file by creating a file called
 `messages.ini` in the pluginc config directory.  Check
-[github](https://github.com/alejandroliu/pocketmine-plugins/tree/master/ManyWorlds/resources/messages/)
+[GitHub](https://github.com/poggit-orphanage/ManyWorlds/tree/master/resources/messages/)
 for sample files.
 
 ## Issues
@@ -184,6 +185,7 @@ for sample files.
 
 # Changes
 
+* 2.2.0: New API updates
 * 2.1.0: Updating to new API
 * 2.0.3: Bugfix update
   * Fixes bug reported by @thebigsmileXD
@@ -262,4 +264,3 @@ Copyright
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
