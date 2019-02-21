@@ -58,7 +58,7 @@ class MwTp extends BasicCli{
 			return true;
 		}
 		$wname = implode(" ", $args);
-		if($player->getLevel() === $this->owner->getServer()->getLevelByName($wname)){
+		if($player->getLevel() === $this->owner->getServer()->getLevelManager()->getLevelByName($wname)){
 			$c->sendMessage($c === $player ? mc::_("You are already in %1%", $wname) : mc::_("%1% is already in %2%", $player->getName(), $wname));
 
 			return true;
@@ -68,7 +68,7 @@ class MwTp extends BasicCli{
 
 			return true;
 		}
-		$level = $this->owner->getServer()->getLevelByName($wname);
+		$level = $this->owner->getServer()->getLevelManager()->getLevelByName($wname);
 		if($level === null){
 			$c->sendMessage(TextFormat::RED . mc::_("Error GetLevelByName %1%"));
 
