@@ -60,7 +60,7 @@ class MwLvDat extends BasicCli{
 
 			return true;
 		}
-		$level = $this->owner->getServer()->getLevelByName($world);
+		$level = $this->owner->getServer()->getLevelManager()->getLevelByName($world);
 		if(!$level){
 			$c->sendMessage(TextFormat::RED . mc::_("[MW] Unexpected error"));
 
