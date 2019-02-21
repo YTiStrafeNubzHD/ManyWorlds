@@ -63,10 +63,10 @@ class MwLoader extends BasicCli{
 			$wlst = [];
 			foreach(glob($this->owner->getServer()->getDataPath() . "worlds/*") as $f){
 				$world = basename($f);
-				if($this->owner->getServer()->isLevelLoaded($world)){
+				if($this->owner->getServer()->getLevelManager()->isLevelLoaded($world)){
 					continue;
 				}
-				if(!$this->owner->getServer()->isLevelGenerated($world)){
+				if(!$this->owner->getServer()->getLevelManager()->isLevelGenerated($world)){
 					continue;
 				}
 				$wlst[] = $world;
@@ -80,12 +80,12 @@ class MwLoader extends BasicCli{
 				TextFormat::AQUA .
 				mc::n(mc::_("[MW] Loading one level"), mc::_("[MW] Loading ALL %1% levels", count($wlst)), count($wlst)));
 		}else{
-			if($this->owner->getServer()->isLevelLoaded($wname)){
+			if($this->owner->getServer()->getLevelManager()->isLevelLoaded($wname)){
 				$sender->sendMessage(TextFormat::RED . mc::_("[MW] %1% already loaded", $wname));
 
 				return true;
 			}
-			if(!$this->owner->getServer()->isLevelGenerated($wname)){
+			if(!$this->owner->getServer()->getLevelManager()->isLevelGenerated($wname)){
 				$sender->sendMessage(TextFormat::RED . mc::_("[MW] %1% does not exists", $wname));
 
 				return true;
@@ -103,18 +103,18 @@ class MwLoader extends BasicCli{
 
 	private function mwWorldUnloadCmd(CommandSender $sender, $wname, $force){
 		// Actual implementation
-		if(!$this->owner->getServer()->isLevelLoaded($wname)){
+		if(!$this->owner->getServer()->getLevelManager()->isLevelLoaded($wname)){
 			$sender->sendMessage(TextFormat::RED . mc::_("[MW] %1% is not loaded.", $wname));
 
 			return true;
 		}
-		$level = $this->owner->getServer()->getLevelByName($wname);
+		$level = $this->owner->getServer()->getLevelManager()->getLevelByName($wname);
 		if($level === null){
 			$sender->sendMessage(TextFormat::RED . mc::_("[MW] Unable to get %1%", $wname));
 
 			return true;
 		}
-		if(!$this->owner->getServer()->unloadLevel($level, $force)){
+		if(!$this->owner->getServer()->getLevelManager()->unloadLevel($level, $force)){
 			if($force){
 				$sender->sendMessage(TextFormat::RED . mc::_("[MW] Unable to unload %1%", $wname));
 			}else{
