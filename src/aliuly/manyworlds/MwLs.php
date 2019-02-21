@@ -38,7 +38,7 @@ class MwLs extends BasicCli{
 		$txt = ["HDR"];
 
 		$auto = $this->owner->getServer()->getProperty("worlds", []);
-		$default = $this->owner->getServer()->getDefaultLevel();
+		$default = $this->owner->getServer()->getLevelManager()->getDefaultLevel();
 		if($default){
 			$default = $default->getName();
 		}
@@ -52,7 +52,7 @@ class MwLs extends BasicCli{
 			if($file === '.' || $file === '..'){
 				continue;
 			}
-			if(!$this->owner->getServer()->isLevelGenerated($file)){
+			if(!$this->owner->getServer()->getLevelManager()->isLevelGenerated($file)){
 				continue;
 			}
 			$attrs = [];
@@ -63,9 +63,9 @@ class MwLs extends BasicCli{
 			if($default == $file){
 				$attrs[] = mc::_("default");
 			}
-			if($this->owner->getServer()->isLevelLoaded($file)){
+			if($this->owner->getServer()->getLevelManager()->isLevelLoaded($file)){
 				$attrs[] = mc::_("loaded");
-				$np = count($this->owner->getServer()->getLevelByName($file)->getPlayers());
+				$np = count($this->owner->getServer()-getLevelManager()->>getLevelByName($file)->getPlayers());
 				if($np){
 					$attrs[] = mc::_("players:%1%", $np);
 				}
@@ -84,7 +84,7 @@ class MwLs extends BasicCli{
 
 	private function mwWorldDetails(CommandSender $sender, $world){
 		$txt = [];
-		if($this->owner->getServer()->isLevelLoaded($world)){
+		if($this->owner->getServer()->getLevelManager()->isLevelLoaded($world)){
 			$unload = false;
 		}else{
 			if(!$this->owner->autoLoad($sender, $world)){
@@ -94,7 +94,7 @@ class MwLs extends BasicCli{
 			}
 			$unload = true;
 		}
-		$level = $this->owner->getServer()->getLevelByName($world);
+		$level = $this->owner->getServer()->getLevelManager()->getLevelByName($world);
 
 		//==== provider
 		$provider = $level->getProvider();
@@ -133,7 +133,7 @@ class MwLs extends BasicCli{
 		}
 
 		if($unload){
-			$this->owner->getServer()->unloadLevel($level);
+			$this->owner->getServer()->getLevelManager()->unloadLevel($level);
 		}
 
 		return $txt;
