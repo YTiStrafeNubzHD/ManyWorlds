@@ -37,22 +37,22 @@ class Main extends BasicPlugin implements CommandExecutor{
 	}
 
 	public function autoLoad(CommandSender $c, $world){
-		if($this->getServer()->isLevelLoaded($world)){
+		if($this->getServer()->getLevelManager()->isLevelLoaded($world)){
 			return true;
 		}
 		if($c !== null && !MPMU::access($c, "mw.cmd.world.load")){
 			return false;
 		}
-		if(!$this->getServer()->isLevelGenerated($world)){
+		if(!$this->getServer()->getLevelManager()->isLevelGenerated($world)){
 			if($c !== null){
 				$c->sendMessage(mc::_("[MW] No world with the name %1% exists!", $world));
 			}
 
 			return false;
 		}
-		$this->getServer()->loadLevel($world);
+		$this->getServer()->getLevelManager()->loadLevel($world);
 
-		return $this->getServer()->isLevelLoaded($world);
+		return $this->getServer()->getLevelManager()->isLevelLoaded($world);
 	}
 
 	//////////////////////////////////////////////////////////////////////
