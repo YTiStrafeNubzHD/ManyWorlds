@@ -65,7 +65,7 @@ class MwLs extends BasicCli{
 			}
 			if($this->owner->getServer()->getLevelManager()->isLevelLoaded($file)){
 				$attrs[] = mc::_("loaded");
-				$np = count($this->owner->getServer()-getLevelManager()->>getLevelByName($file)->getPlayers());
+				$np = count($this->owner->getServer()-getLevelManager()->getLevelByName($file)->getPlayers());
 				if($np){
 					$attrs[] = mc::_("players:%1%", $np);
 				}
