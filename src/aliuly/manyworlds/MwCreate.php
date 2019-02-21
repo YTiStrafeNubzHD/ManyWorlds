@@ -35,7 +35,7 @@ class MwCreate extends BasicCli{
 			return false;
 		}
 		$world = array_shift($args);
-		if($this->owner->getServer()->isLevelGenerated($world)){
+		if($this->owner->getServer()->getLevelManager()->isLevelGenerated($world)){
 			$c->sendMessage(TextFormat::RED . mc::_("[MW] A world named %1% already exists", $world));
 
 			return true;
@@ -59,8 +59,8 @@ class MwCreate extends BasicCli{
 			$opts = ["preset" => $args[2]];
 		}
 		$this->owner->getServer()->broadcastMessage(mc::_("[MW] Creating level %1%... (Expect Lag)", $world));
-		$this->owner->getServer()->generateLevel($world, $seed, $generator, $opts);
-		$this->owner->getServer()->loadLevel($world);
+		$this->owner->getServer()->getLevelManager()->generateLevel($world, $seed, $generator, $opts);
+		$this->owner->getServer()->getLevelManager()->loadLevel($world);
 
 		return true;
 	}
